@@ -8,6 +8,7 @@ import { use, useEffect, useState } from "react";
 import { motion } from "motion/react";
 import { toast } from "sonner";
 import RecentlyViewedSection from "@/components/recentlyViewedSection";
+import { notFound } from "next/navigation";
 
 export default function ProductPage({
   params,
