@@ -5,9 +5,9 @@ export interface Product {
   id: number;
   name: string;
   price: number;
-  originalPrice: number;
-  rating: number;
-  reviews: number;
+  originalPrice?: number;
+  rating?: number;
+  reviews?: number;
   image: string;
   href: string;
   category: string;
