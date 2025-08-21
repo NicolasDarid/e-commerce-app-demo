@@ -165,15 +165,12 @@ export default function ProductPage({
                     </tr>
                   </thead>
                   <tbody>
-                    {product.analyse.map((item, idx) => {
-                      const [key, value] = item.split(":");
-                      return (
-                        <tr key={idx} className="hover:bg-gray-50">
-                          <td className="px-4 py-2 border-b">{key}</td>
-                          <td className="px-4 py-2 border-b">{value}</td>
-                        </tr>
-                      );
-                    })}
+                    {product.analyse.map((item, idx) => (
+                      <tr key={idx} className="hover:bg-gray-50">
+                        <td className="px-4 py-2 border-b">{item.key}</td>
+                        <td className="px-4 py-2 border-b">{item.value}</td>
+                      </tr>
+                    ))}
                   </tbody>
                 </table>
               </div>

@@ -12,7 +12,7 @@ export interface Product {
   href: string;
   category: string;
   description?: string;
-  analyse?: Record<string, string>;
+  analyse?: { key: string; value: string }[];
   isNew?: boolean;
 }
 
