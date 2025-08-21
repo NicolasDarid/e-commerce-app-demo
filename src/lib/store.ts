@@ -11,8 +11,8 @@ export interface Product {
   image: string;
   href: string;
   category: string;
-  description: string;
-  analyse: string[];
+  description?: string;
+  analyse?: Record<string, string>;
   isNew?: boolean;
 }
 
