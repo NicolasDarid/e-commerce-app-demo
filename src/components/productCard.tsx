@@ -25,6 +25,10 @@ export default function ProductCard({
     useProductStore();
 
   const handleAddToCart = () => {
+    if (!product) {
+      toast.error("Produit introuvable");
+      return;
+    }
     addToCart(product);
     addToRecentlyViewed(product);
     toast.success("Produit ajouté au panier");
@@ -33,6 +37,10 @@ export default function ProductCard({
   const [clicked, setClicked] = useState(false);
 
   const handleFavoriteClick = () => {
+    if (!product) {
+      toast.error("Produit introuvable");
+      return;
+    }
     if (clicked) return; // ignore les clics pendant l'animation
     toggleFavorite(product.id);
     if (isFavorite(product.id)) {
@@ -45,6 +53,9 @@ export default function ProductCard({
   };
 
   const handleImageLoad = () => {
+    if (!product) {
+      return;
+    }
     setImageLoading(false);
     addToRecentlyViewed(product);
   };

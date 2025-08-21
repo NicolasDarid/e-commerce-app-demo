@@ -26,12 +26,14 @@ export default function ProductPage({
 
   const handleFavoriteClick = () => {
     if (clicked) return; // ignore les clics pendant l'animation
+    if (!product) return;
     toggleFavorite(product.id);
     setClicked(true);
     setTimeout(() => setClicked(false), 300); // correspond à la durée de l'animation
   };
 
   const handleShopClick = () => {
+    if (!product) return;
     addToCart(product);
     toast.success("Article ajouté au panier");
   };

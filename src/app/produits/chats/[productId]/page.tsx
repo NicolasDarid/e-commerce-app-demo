@@ -25,12 +25,14 @@ export default function ProductPage({
 
   const handleFavoriteClick = () => {
     if (clicked) return; // ignore les clics pendant l'animation
+    if (!product) return;
     toggleFavorite(product.id);
     setClicked(true);
     setTimeout(() => setClicked(false), 300); // correspond à la durée de l'animation
   };
 
   const handleShopClick = () => {
+    if (!product) return;
     addToCart(product);
     toast.success("Article ajouté au panier");
   };
@@ -41,11 +43,7 @@ export default function ProductPage({
   }, [product, addToRecentlyViewed]);
 
   if (!product) {
-    return (
-      <div className="min-h-screen flex items-center justify-center text-gray-500">
-        Produit introuvable 🐾
-      </div>
-    );
+    notFound();
   }
 
   return (
