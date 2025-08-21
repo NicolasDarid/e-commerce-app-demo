@@ -129,13 +129,15 @@ export default function ProductCard({
           />
         </button>
 
-        <div className="absolute bottom-3 left-3 bg-white px-2 py-1 rounded-full shadow-sm">
-          <div className="flex items-center space-x-1">
-            <Star className="h-3 w-3 text-yellow-400 fill-current" />
-            <span className="text-xs font-medium">{product.rating}</span>
-            <span className="text-xs text-gray-500">({product.reviews})</span>
+        {product.rating & product.reviews && (
+          <div className="absolute bottom-3 left-3 bg-white px-2 py-1 rounded-full shadow-sm">
+            <div className="flex items-center space-x-1">
+              <Star className="h-3 w-3 text-yellow-400 fill-current" />
+              <span className="text-xs font-medium">{product.rating}</span>
+              <span className="text-xs text-gray-500">({product.reviews})</span>
+            </div>
           </div>
-        </div>
+        )}
       </div>
 
       <div className="p-4">
@@ -154,7 +156,8 @@ export default function ProductCard({
             <span className="text-lg font-bold text-gray-900">
               €{product.price.toFixed(2)}
             </span>
-            {product.originalPrice > product.price && (
+            {product.originalPrice &
+              (product.originalPrice > product.price) && (
               <span className="text-sm text-gray-500 line-through">
                 €{product.originalPrice.toFixed(2)}
               </span>
