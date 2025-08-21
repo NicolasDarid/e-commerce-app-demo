@@ -5,7 +5,7 @@ import { useProductStore } from "@/lib/store";
 import { Heart, ShoppingCart } from "lucide-react";
 import Image from "next/image";
 import { use, useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { toast } from "sonner";
 import RecentlyViewedSection from "@/components/recentlyViewedSection";
 
