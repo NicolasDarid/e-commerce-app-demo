@@ -21,18 +21,8 @@ export default function Footer() {
               depuis 2014.
             </p>
             <div className="flex space-x-4">
-              <Link
-                href="#"
-                className="text-gray-400 hover:text-white transition-colors"
-              >
-                📧 runkroket@runkroket.re
-              </Link>
-              <Link
-                href="#"
-                className="text-gray-400 hover:text-white transition-colors"
-              >
-                📞 06 92 33 42 43
-              </Link>
+              <span className="text-gray-400">📧 runkroket@runkroket.re</span>
+              <span className="text-gray-400">📞 06 92 33 42 43</span>
             </div>
           </div>
 
@@ -42,7 +32,7 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <Link
-                  href="#"
+                  href="/"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
                   🏠 Accueil
@@ -50,7 +40,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#"
+                  href="/produits/chiens"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
                   🐕 Produits Chiens
@@ -58,7 +48,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#"
+                  href="/produits/chats"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
                   🐱 Produits Chats
@@ -66,7 +56,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#"
+                  href="/produits/promotions"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
                   🎉 Promotions
@@ -74,7 +64,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#"
+                  href="/contact"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
                   📞 Contact

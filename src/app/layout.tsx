@@ -25,9 +25,9 @@ export default function RootLayout({
       <body className={inter.className}>
         <NuqsAdapter>
           <HydrationProvider>
-            <div className="flex flex-col min-h-screen">
+            <div className="flex flex-col min-h-screen w-full">
               <Header />
-              <main className="flex-1">{children}</main>
+              <main>{children}</main>
               <Toaster />
               <Footer />
             </div>

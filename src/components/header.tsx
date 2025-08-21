@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useProductStore } from "@/lib/store";
-import { ShoppingCart, Heart, Menu, X, Search, PawPrint } from "lucide-react";
+import { ShoppingCart, Heart, Menu, X, PawPrint } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 
 import Cart from "./cart";
@@ -21,12 +21,9 @@ export default function Header() {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center space-x-2">
             <PawPrint className="h-8 w-8 text-blue-600" />
-            <div>
-              <h1 className="text-xl font-bold text-gray-900">RunKroket</h1>
-              <p className="text-xs text-gray-500">Boutique en ligne</p>
-            </div>
+            <h1 className="text-xl font-bold text-gray-900">RunKroket</h1>
           </div>
 
           {/* Navigation Desktop */}
@@ -35,7 +32,7 @@ export default function Header() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="hover:text-blue-600 font-medium transition-color"
+                className="hover:text-blue-600 font-medium transition-colors"
               >
                 {item.name}
               </Link>
@@ -43,13 +40,15 @@ export default function Header() {
           </nav>
 
           {/* Actions */}
-          <div className="flex items-center space-x-4">
-            {/* Barre de recherche */}
-            <SearchBar />
+          <div className="flex items-center space-x-3">
+            {/* Barre de recherche desktop */}
+            <div className="hidden md:block">
+              <SearchBar />
+            </div>
 
-            {/* Favoris */}
+            {/* Favoris (desktop seulement) */}
             <Button
-              className={`relative p-2 text-gray-600 transition-colors bg-transparent ${
+              className={`hidden md:block relative p-2 text-gray-600 bg-transparent ${
                 favorites.length < 1
                   ? "disabled bg-gray-400/50 hover:bg-gray-400/50"
                   : "cursor-pointer hover:text-red-500 hover:bg-accent"
@@ -82,18 +81,35 @@ export default function Header() {
               className="md:hidden p-2 text-gray-600 hover:text-gray-900"
             >
               {isMenuOpen ? (
-                <X className="h-5 w-5" />
+                <X className="h-6 w-6" />
               ) : (
-                <Menu className="h-5 w-5" />
+                <Menu className="h-6 w-6" />
               )}
             </button>
           </div>
         </div>
+      </div>
 
-        {/* Menu mobile */}
+      {/* Menu mobile plein écran */}
+      <AnimatePresence>
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-gray-200">
-            <nav className="flex flex-col space-y-4">
+          <motion.div
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{ duration: 0.25 }}
+            className="fixed inset-0 z-50 bg-white shadow-lg md:hidden"
+          >
+            <div className="flex items-center justify-between p-4 border-b">
+              <h2 className="text-lg font-semibold">Menu</h2>
+              <button
+                onClick={() => setIsMenuOpen(false)}
+                className="p-2 text-gray-500 hover:text-gray-700"
+              >
+                <X className="h-6 w-6" />
+              </button>
+            </div>
+            <nav className="flex flex-col p-4 space-y-4">
               {navigation.map((item) => (
                 <Link
                   key={item.name}
@@ -104,19 +120,19 @@ export default function Header() {
                   {item.name}
                 </Link>
               ))}
-              {/* Barre de recherche mobile */}
+              {/* Recherche mobile */}
               <div className="flex items-center space-x-2 bg-gray-100 rounded-lg px-3 py-2">
-                <Search className="h-4 w-4 text-gray-400" />
-                <input
-                  type="text"
-                  placeholder="Rechercher un produit..."
-                  className="bg-transparent outline-none text-sm flex-1"
-                />
+                <SearchBar />
               </div>
+              {/* Favoris mobile */}
+              <button className="flex items-center space-x-2 text-gray-700 hover:text-red-500">
+                <Heart className="h-5 w-5" />
+                <span>Favoris ({favorites.length})</span>
+              </button>
             </nav>
-          </div>
+          </motion.div>
         )}
-      </div>
+      </AnimatePresence>
 
       {/* Panier latéral */}
       <AnimatePresence>
@@ -129,17 +145,16 @@ export default function Header() {
           >
             {/* Overlay */}
             <div
-              className="flex-1 bg-transparent"
+              className="flex-1 bg-black/20"
               onClick={() => setIsCartOpen(false)}
             />
-
-            {/* Sidebar */}
+            {/* Sidebar panier */}
             <motion.div
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
-              transition={{ duration: 0.2, ease: "easeInOut" }}
-              className="h-full w-fit bg-white shadow-xl"
+              transition={{ duration: 0.25 }}
+              className="h-full w-80 max-w-full bg-white shadow-xl"
             >
               <div className="flex items-center justify-between p-4 border-b border-gray-200">
                 <h2 className="text-lg font-semibold text-gray-900">
