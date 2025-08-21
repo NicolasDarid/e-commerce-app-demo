@@ -131,7 +131,7 @@ export const useProductStore = create<ProductStore>()(
             (p) => p.id !== product.id
           );
           return {
-            recentlyViewed: [product, ...filtered].slice(0, 10), // Garde les 10 derniers
+            recentlyViewed: [product, ...filtered].slice(0, 3), // Garde les 3 derniers
           };
         }),
       clearRecentlyViewed: () => set({ recentlyViewed: [] }),

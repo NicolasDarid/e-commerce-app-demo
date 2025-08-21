@@ -6,6 +6,7 @@ import Footer from "@/components/footer";
 import HydrationProvider from "@/components/hydration-provider";
 import { Toaster } from "sonner";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
+import StorageNotice from "@/components/infoBanner";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,10 +26,11 @@ export default function RootLayout({
       <body className={inter.className}>
         <NuqsAdapter>
           <HydrationProvider>
-            <div className="flex flex-col min-h-screen w-full">
+            <div className="flex flex-col min-h-screen w-full max-md:px-2">
               <Header />
               <main>{children}</main>
               <Toaster />
+              <StorageNotice />
               <Footer />
             </div>
           </HydrationProvider>

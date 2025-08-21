@@ -129,7 +129,7 @@ export default function Footer() {
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <Link
-                href="#"
+                href="/politique-confidentialite"
                 className="text-gray-400 hover:text-white transition-colors text-sm"
               >
                 Politique de confidentialité
