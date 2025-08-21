@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useProductStore } from "@/lib/store";
 import { ShoppingCart, Heart, Menu, X, Search, PawPrint } from "lucide-react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
 
 import Cart from "./cart";
 import { Button } from "./ui/button";
