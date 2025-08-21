@@ -99,11 +99,12 @@ export default function ProductPage({
               <span className="text-2xl font-bold text-gray-900">
                 €{product.price.toFixed(2)}
               </span>
-              {product.originalPrice > product.price && (
-                <span className="text-sm text-gray-500 line-through">
-                  €{product.originalPrice.toFixed(2)}
-                </span>
-              )}
+              {product.originalPrice !== undefined &&
+                product.originalPrice > product.price && (
+                  <span className="text-sm text-gray-500 line-through">
+                    €{product.originalPrice.toFixed(2)}
+                  </span>
+                )}
             </div>
 
             <div className="flex items-center gap-4 mb-6">
