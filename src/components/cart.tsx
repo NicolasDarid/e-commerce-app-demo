@@ -49,6 +49,12 @@ export default function Cart() {
               height={50}
               className="w-16 h-16 object-cover rounded-md"
             />
+            <button
+              onClick={() => removeFromCart(item.id)}
+              className="text-red-600 hover:text-red-700 p-1"
+            >
+              <Trash2 className="h-4 w-4" />
+            </button>
 
             <div className="flex-1">
               <h3 className="font-medium text-gray-900">{item.name}</h3>
@@ -58,7 +64,7 @@ export default function Cart() {
               </p>
             </div>
 
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center space-x-2 max-md:flex-col">
               <button
                 onClick={() => updateQuantity(item.id, item.quantity - 1)}
                 disabled={item.quantity <= 1}
@@ -79,7 +85,7 @@ export default function Cart() {
               </button>
             </div>
 
-            <div className="text-right">
+            <div className="text-right max-md:hidden">
               <p className="font-bold text-gray-900">
                 €{(item.price * item.quantity).toFixed(2)}
               </p>
@@ -102,8 +108,8 @@ export default function Cart() {
           </span>
         </div>
 
-        <button className="w-full bg-blue-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-blue-700 transition-colors">
-          Procéder au paiement
+        <button className="w-full bg-gray-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-gray-700 transition-colors disabled">
+          Programmer une livraison
         </button>
       </div>
     </div>
