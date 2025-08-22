@@ -41,7 +41,7 @@ export default function ProductPage({
   // Ajouter le produit aux vues récentes
   useEffect(() => {
     if (product) addToRecentlyViewed(product.id);
-  }, [addToRecentlyViewed, product, product.id]);
+  }, [addToRecentlyViewed, product, product?.id]);
 
   if (!product) {
     notFound();
