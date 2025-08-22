@@ -4,16 +4,23 @@ import { Product } from "./store";
 export const products: Product[] = [
   {
     id: 1,
-    name: "Croquettes Premium Chien Adulte",
-    price: 45.99,
-    originalPrice: 59.99,
-    rating: 4.7,
-    reviews: 1247,
-    image:
-      "https://images.unsplash.com/photo-1601758228041-3caa3d3d3b1f?w=300&h=300&fit=crop",
+    name: "Croquettes - Dog&Dog Wild Regional Farm",
+    price: 70.0,
+    poids: "12 Kg",
+    image: "/DD_wregionalfarm_B.jpg",
     category: "Nutrition Chien",
     isNew: true,
     href: "chiens",
+    description:
+      "Croquettes riches en protéines animales pour Chiens adultes de toutes tailles, préférant les viandes blanches d’élevage libre. Aussi adapté pour les chiennes allaitantes ou gestantes. Préparé avec une grande variété de viandes provenant des fermes européennes, telles que le canard, poulet et lapin, complétés par des œufs, des légumes, des fruits et fleurs.",
+    analyse: [
+      { key: "Protéines brutes", value: "41,90%" },
+      { key: "Matières grasses brutes", value: "19,50%" },
+      { key: "Fibres brutes", value: "2,00%" },
+      { key: "Cendres brutes", value: "7,00°%" },
+    ],
+    composition:
+      "Poulet séché fraîchement préparé (25%), Pois, Cerdo ibérique désossé séché, Graisse animale, Châtaignes cassées, Canard cuit séché (6%), Protéines de poulet hydrolysées, Lapin désossé séché (4%), Oeufs, Fleurs d’hibiscus (0,192%), Fleurs de Rosa canina L. et Rosa pendulina L. 0,024%, Framboises (0,008%), Mûres (0,008%), Fraises (0,008%)",
   },
   {
     id: 2,

@@ -108,9 +108,10 @@ export default function Cart() {
           </span>
         </div>
 
-        <button className="w-full bg-gray-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-gray-700 transition-colors disabled">
+        {/* 
+        <button className="w-full bg-blue-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-gray-700 transition-colors disabled">
           Programmer une livraison
-        </button>
+        </button>*/}
       </div>
     </div>
   );

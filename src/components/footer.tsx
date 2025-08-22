@@ -135,13 +135,13 @@ export default function Footer() {
                 Politique de confidentialité
               </Link>
               <Link
-                href="#"
+                href="/mentions-legales"
                 className="text-gray-400 hover:text-white transition-colors text-sm"
               >
                 Mentions légales
               </Link>
               <Link
-                href="#"
+                href="/politique-confidentialite"
                 className="text-gray-400 hover:text-white transition-colors text-sm"
               >
                 Cookies

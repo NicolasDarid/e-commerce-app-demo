@@ -13,6 +13,8 @@ export interface Product {
   category: string;
   description?: string;
   analyse?: { key: string; value: string }[];
+  composition?: string;
+  poids?: string;
   isNew?: boolean;
 }
 
@@ -42,8 +44,8 @@ interface ProductStore {
   getCartItemCount: () => number;
 
   // Historique des vues
-  recentlyViewed: Product[];
-  addToRecentlyViewed: (product: Product) => void;
+  recentlyViewed: number[]; // juste les IDs
+  addToRecentlyViewed: (productId: number) => void;
   clearRecentlyViewed: () => void;
 }
 
@@ -125,13 +127,13 @@ export const useProductStore = create<ProductStore>()(
 
       // Historique des vues
       recentlyViewed: [],
-      addToRecentlyViewed: (product) =>
+      addToRecentlyViewed: (productId) =>
         set((state) => {
           const filtered = state.recentlyViewed.filter(
-            (p) => p.id !== product.id
+            (id) => id !== productId
           );
           return {
-            recentlyViewed: [product, ...filtered].slice(0, 3), // Garde les 3 derniers
+            recentlyViewed: [productId, ...filtered].slice(0, 3), // garde les 3 derniers
           };
         }),
       clearRecentlyViewed: () => set({ recentlyViewed: [] }),

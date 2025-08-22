@@ -40,8 +40,8 @@ export default function ProductPage({
 
   // Ajouter le produit aux vues récentes
   useEffect(() => {
-    if (product) addToRecentlyViewed(product);
-  }, [product, addToRecentlyViewed]);
+    if (product) addToRecentlyViewed(product.id);
+  }, [addToRecentlyViewed, product, product.id]);
 
   if (!product) {
     notFound();
@@ -58,7 +58,7 @@ export default function ProductPage({
               alt={product.name}
               width={500}
               height={500}
-              className="w-full h-full object-cover rounded-xl shadow-md"
+              className="w-full h-full object-contain rounded-xl shadow-md"
             />
             {product.isNew && (
               <span className="absolute top-3 left-3 bg-blue-500 text-white text-xs px-2 py-1 rounded-full">
@@ -105,6 +105,11 @@ export default function ProductPage({
                     €{product.originalPrice.toFixed(2)}
                   </span>
                 )}
+              {product.poids && (
+                <span className="text-2xl font-bold text-gray-900 m-auto">
+                  {product.poids}
+                </span>
+              )}
             </div>
 
             <div className="flex items-center gap-4 mb-6">
@@ -177,6 +182,14 @@ export default function ProductPage({
               </div>
             )}
           </div>
+        </div>
+
+        <div className="mt-8">
+          {/* Section Composition */}
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">
+            📋 Composition
+          </h2>
+          <p className="text-gray-700">{product.composition}</p>
         </div>
 
         {/* Section produits favoris / récemment vus / même catégorie */}

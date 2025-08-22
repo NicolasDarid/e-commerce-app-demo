@@ -40,7 +40,7 @@ export default function ProductPage({
 
   // Ajouter le produit aux vues récentes
   useEffect(() => {
-    if (product) addToRecentlyViewed(product);
+    if (product) addToRecentlyViewed(product.id);
   }, [product, addToRecentlyViewed]);
 
   if (!product) {

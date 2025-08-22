@@ -30,7 +30,7 @@ export default function ProductCard({
       return;
     }
     addToCart(product);
-    addToRecentlyViewed(product);
+    addToRecentlyViewed(product.id);
     toast.success("Produit ajouté au panier");
   };
 
@@ -45,6 +45,7 @@ export default function ProductCard({
     toggleFavorite(product.id);
     if (isFavorite(product.id)) {
       toast.success("Produit ajouté aux favoris");
+      addToRecentlyViewed(product.id);
     } else {
       toast.success("Produit retiré des favoris");
     }
@@ -57,7 +58,6 @@ export default function ProductCard({
       return;
     }
     setImageLoading(false);
-    addToRecentlyViewed(product);
   };
 
   const handleImageError = () => {
