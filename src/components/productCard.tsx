@@ -29,7 +29,7 @@ export default function ProductCard({
       toast.error("Produit introuvable");
       return;
     }
-    if (product.formats) {
+    if ("formats" in product) {
       addToCart(product, product.formats[0]);
     } else {
       addToCart(product);
@@ -157,7 +157,7 @@ export default function ProductCard({
 
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
-            {product.formats && product.formats.length > 0 ? (
+            {"formats" in product && product.formats.length > 0 ? (
               <>
                 <span className="text-lg font-bold text-gray-900">
                   €{product.formats[0].price.toFixed(2)}
