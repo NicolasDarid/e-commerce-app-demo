@@ -26,9 +26,8 @@ export default function ProductPage({
   const resolvedParams = use(params); // Résout la promesse
   const { productId } = resolvedParams;
 
-  if (!product) notFound();
-
   const product = products.find((p) => p.id === Number(productId));
+  if (!product) notFound();
   const { isFavorite, toggleFavorite, addToCart, addToRecentlyViewed } =
     useProductStore();
 
