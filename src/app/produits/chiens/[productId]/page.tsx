@@ -53,7 +53,7 @@ export default function ProductPage({
 
   const handleShopClick = () => {
     if (!product) return;
-    if (product.formats) {
+    if ("formats" in product) {
       addToCart(product, selectedFormat);
     } else {
       addToCart(product);
