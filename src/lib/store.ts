@@ -36,6 +36,11 @@ export type Product = SingleFormatProduct | MultiFormatProduct;
 
 // Item du panier
 interface CartItem extends Product {
+  id: number;
+  name: string;
+  image: string;
+  href: string;
+  category: string;
   quantity: number;
   cartKey: string; // id unique pour le panier = id + format
   // si produit multi-format
