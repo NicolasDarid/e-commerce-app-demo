@@ -291,5 +291,5 @@ function getDefaultOriginalPrice(product: Product): number {
     return product.formats[0].originalPrice;
   }
   const single = product as SingleFormatProduct;
-  return single.originalPrice ?? ""; // <-- fallback vide si undefined
+  return single.originalPrice ?? 0; // <-- fallback vide si undefined
 }
