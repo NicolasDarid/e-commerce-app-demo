@@ -286,9 +286,9 @@ function getDefaultPoids(product: Product): string {
   return single.poids ?? ""; // <-- fallback vide si undefined
 }
 
-function getDefaultOriginalPrice(product: Product): number | undefined {
+function getDefaultOriginalPrice(product: Product): number {
   if ("formats" in product && product.formats.length > 0) {
-    return product.formats[0].originalPrice;
+    return product.formats[0].originalPrice ?? 0;
   }
   const single = product as SingleFormatProduct;
   return single.originalPrice ?? 0; // <-- fallback vide si undefined
