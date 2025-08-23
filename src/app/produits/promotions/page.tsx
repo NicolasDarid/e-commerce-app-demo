@@ -1,5 +1,6 @@
 import ProductCard from "@/components/productCard";
 import { products } from "@/lib/data";
+import { SingleFormatProduct } from "@/lib/store";
 
 export default function ProduitsPromos() {
   const filteredProducts = products.filter((produit) =>
