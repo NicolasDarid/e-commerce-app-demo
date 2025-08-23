@@ -254,12 +254,12 @@ const ClassicDisplay = (product: Product) => {
   return (
     <div className="flex items-center mt-4 mb-6 space-x-4">
       <span className="text-2xl font-bold text-gray-900">
-        €{product.price.toFixed(2)}
+        €{getDefaultPrice(product).toFixed(2)}
       </span>
       {product.originalPrice !== undefined &&
         product.originalPrice > product.price && (
           <span className="text-sm text-gray-500 line-through">
-            €{product.originalPrice.toFixed(2)}
+            €{getDefaultOriginalPrice(product).toFixed(2)}
           </span>
         )}
       {product.poids && (
@@ -270,3 +270,17 @@ const ClassicDisplay = (product: Product) => {
     </div>
   );
 };
+
+function getDefaultPrice(product: Product): number {
+  if ("formats" in product && product.formats.length > 0) {
+    return product.formats[0].price;
+  }
+  return (product as SingleFormatProduct).price;
+}
+
+function getDefaultOriginalPrice(product: Product): number {
+  if ("formats" in product && product.formats.length > 0) {
+    return product.formats[0].originalPrice;
+  }
+  return (product as SingleFormatProduct).originalPrice;
+}
