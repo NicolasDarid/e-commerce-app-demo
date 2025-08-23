@@ -114,7 +114,7 @@ export default function ProductPage({
               <span className="text-sm text-blue-600 font-medium">
                 {product.category}
               </span>
-              {product.formats ? (
+              {"formats" in product ? (
                 <div className="mt-4 mb-6">
                   {product.formats.length > 1 ? (
                     <>
