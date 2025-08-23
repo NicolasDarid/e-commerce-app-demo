@@ -32,10 +32,12 @@ export default function ProductPage({
 
   const [clicked, setClicked] = useState(false);
   const [selectedFormat, setSelectedFormat] = useState(() => {
-    if (product?.formats && product?.formats.length > 0) {
-      return product?.formats[0]; // Premier format disponible
+    if ("formats" in product && product.formats.length > 0) {
+      // produit multi-format
+      return product.formats[0];
     } else {
-      return { poids: product?.poids ?? "", price: product?.price ?? 0 }; // fallback pour produit sans formats
+      // produit simple (avec juste un poids/price)
+      return { poids: product.poids ?? "", price: product.price ?? 0 };
     }
   });
 
@@ -114,7 +116,7 @@ export default function ProductPage({
               <span className="text-sm text-blue-600 font-medium">
                 {product.category}
               </span>
-              {product.formats ? (
+              {"formats" in product ? (
                 <div className="mt-4 mb-6">
                   {product.formats.length > 1 ? (
                     <>
