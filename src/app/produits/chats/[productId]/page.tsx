@@ -32,10 +32,10 @@ export default function ProductPage({
 
   const [clicked, setClicked] = useState(false);
   const [selectedFormat, setSelectedFormat] = useState(() => {
-    if (product.formats && product.formats.length > 0) {
-      return product.formats[0]; // Premier format disponible
+    if (product?.formats && product?.formats.length > 0) {
+      return product?.formats[0]; // Premier format disponible
     } else {
-      return { poids: product.poids ?? "", price: product.price ?? 0 }; // fallback pour produit sans formats
+      return { poids: product?.poids ?? "", price: product?.price ?? 0 }; // fallback pour produit sans formats
     }
   });
 
