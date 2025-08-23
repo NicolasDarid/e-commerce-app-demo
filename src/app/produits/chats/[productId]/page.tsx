@@ -278,7 +278,7 @@ function getDefaultPrice(product: Product): number {
   return (product as SingleFormatProduct).price;
 }
 
-function getDefaultPoids(product: Product): number {
+function getDefaultPoids(product: Product): string {
   if ("formats" in product && product.formats.length > 0) {
     return product.formats[0].poids;
   }
