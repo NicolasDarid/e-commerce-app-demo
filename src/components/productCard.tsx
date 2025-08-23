@@ -6,6 +6,11 @@ import { useState } from "react";
 import { useProductStore, Product } from "@/lib/store";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
+import {
+  getDefaultOriginalPrice,
+  getDefaultPoids,
+  getDefaultPrice,
+} from "@/lib/getValue";
 
 interface ProductCardProps {
   product: Product;
@@ -176,17 +181,18 @@ export default function ProductCard({
             ) : (
               <>
                 <span className="text-lg font-bold text-gray-900">
-                  €{product.price.toFixed(2)}
+                  €{getDefaultPrice(product).toFixed(2)}
                 </span>
-                {product.originalPrice !== undefined &&
-                  product.originalPrice > product.price && (
+                {getDefaultOriginalPrice(product) !== undefined &&
+                  getDefaultOriginalPrice(product) >
+                    getDefaultPrice(product) && (
                     <span className="text-sm text-gray-500 line-through">
-                      €{product.originalPrice.toFixed(2)}
+                      €{getDefaultOriginalPrice(product).toFixed(2)}
                     </span>
                   )}
-                {product.poids && (
+                {getDefaultPoids(product) && (
                   <span className="text-sm text-gray-600">
-                    ({product.poids})
+                    ({getDefaultPoids(product)})
                   </span>
                 )}
               </>
