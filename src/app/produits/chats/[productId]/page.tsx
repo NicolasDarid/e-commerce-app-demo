@@ -290,5 +290,6 @@ function getDefaultOriginalPrice(product: Product): number {
   if ("formats" in product && product.formats.length > 0) {
     return product.formats[0].originalPrice;
   }
-  return (product as SingleFormatProduct).originalPrice;
+  const single = product as SingleFormatProduct;
+  return single.originalPrice ?? ""; // <-- fallback vide si undefined
 }
