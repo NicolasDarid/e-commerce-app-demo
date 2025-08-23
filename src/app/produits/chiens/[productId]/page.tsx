@@ -37,8 +37,9 @@ export default function ProductPage({
       // produit multi-format
       return product.formats[0];
     } else {
-      // produit simple (avec juste un poids/price)
-      return { poids: product.poids ?? "", price: product.price ?? 0 };
+      // produit simple
+      const single = product as SingleFormatProduct;
+      return { poids: single.poids ?? "", price: single.price ?? 0 };
     }
   });
 
