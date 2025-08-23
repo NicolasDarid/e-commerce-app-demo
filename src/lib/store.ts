@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
+import { getDefaultPoids, getDefaultPrice } from "./getValue";
 
 export interface BaseProduct {
   id: number;
@@ -123,8 +124,8 @@ export const useProductStore = create<ProductStore>()(
       ) =>
         set((state) => {
           const actualFormat = format ?? {
-            poids: product.poids ?? "",
-            price: product.price,
+            poids: getDefaultPoids(product) ?? "",
+            price: getDefaultPrice(product),
           };
           const cartKey = `${product.id}-${actualFormat.poids}`;
 
