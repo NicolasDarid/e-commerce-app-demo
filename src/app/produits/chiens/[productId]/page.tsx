@@ -1,7 +1,7 @@
 "use client";
 
 import { products } from "@/lib/data";
-import { useProductStore } from "@/lib/store";
+import { Product, useProductStore } from "@/lib/store";
 import { Heart, ShoppingCart } from "lucide-react";
 import Image from "next/image";
 import { use, useEffect, useState } from "react";
@@ -9,6 +9,14 @@ import { motion } from "motion/react";
 import { toast } from "sonner";
 import RecentlyViewedSection from "@/components/recentlyViewedSection";
 import { notFound } from "next/navigation";
+import { Label } from "@/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 export default function ProductPage({
   params,
@@ -23,6 +31,13 @@ export default function ProductPage({
     useProductStore();
 
   const [clicked, setClicked] = useState(false);
+  const [selectedFormat, setSelectedFormat] = useState(() => {
+    if (product.formats && product.formats.length > 0) {
+      return product.formats[0]; // Premier format disponible
+    } else {
+      return { poids: product.poids ?? "", price: product.price ?? 0 }; // fallback pour produit sans formats
+    }
+  });
 
   const handleFavoriteClick = () => {
     if (clicked) return; // ignore les clics pendant l'animation
@@ -34,7 +49,11 @@ export default function ProductPage({
 
   const handleShopClick = () => {
     if (!product) return;
-    addToCart(product);
+    if (product.formats) {
+      addToCart(product, selectedFormat);
+    } else {
+      addToCart(product);
+    }
     toast.success("Article ajouté au panier");
   };
 
@@ -88,27 +107,55 @@ export default function ProductPage({
 
           {/* Infos produit */}
           <div>
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">
-              {product.name}
-            </h1>
-            <span className="text-sm text-blue-600 font-medium">
-              {product.category}
-            </span>
-
-            <div className="flex items-center mt-4 mb-6 space-x-4">
-              <span className="text-2xl font-bold text-gray-900">
-                €{product.price.toFixed(2)}
+            <div>
+              <h1 className="text-3xl font-bold text-gray-900 mb-2">
+                {product.name}
+              </h1>
+              <span className="text-sm text-blue-600 font-medium">
+                {product.category}
               </span>
-              {product.originalPrice !== undefined &&
-                product.originalPrice > product.price && (
-                  <span className="text-sm text-gray-500 line-through">
-                    €{product.originalPrice.toFixed(2)}
-                  </span>
-                )}
-              {product.poids && (
-                <span className="text-2xl font-bold text-gray-900 m-auto">
-                  {product.poids}
-                </span>
+              {product.formats ? (
+                <div className="mt-4 mb-6">
+                  {product.formats.length > 1 ? (
+                    <>
+                      <Label className="block text-md font-medium text-gray-700 mb-2">
+                        Format
+                      </Label>
+                      <Select
+                        value={selectedFormat.poids}
+                        onValueChange={(val) => {
+                          const format = product.formats.find(
+                            (f) => f.poids === val
+                          );
+                          setSelectedFormat(format ?? product.formats[0]);
+                        }}
+                      >
+                        <SelectTrigger className="w-fit text-md border rounded-lg px-3 py-2 text-gray-900 border-gray-400/50">
+                          <SelectValue placeholder="Sélectionner un format" />
+                        </SelectTrigger>
+
+                        <SelectContent className="bg-white border rounded-md shadow-lg max-h-60 overflow-auto">
+                          {product.formats.map((f) => (
+                            <SelectItem
+                              key={f.poids}
+                              value={f.poids}
+                              className="hover:bg-blue-50 data-[highlighted]:bg-blue-100 rounded-md px-2 py-1 text-gray-900 text-md"
+                            >
+                              {f.poids} - €{f.price.toFixed(2)}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </>
+                  ) : (
+                    <div className="text-lg font-bold text-gray-900">
+                      {product.formats[0].poids} - €
+                      {product.formats[0].price.toFixed(2)}
+                    </div>
+                  )}
+                </div>
+              ) : (
+                ClassicDisplay(product)
               )}
             </div>
 
@@ -184,13 +231,15 @@ export default function ProductPage({
           </div>
         </div>
 
-        <div className="mt-8">
-          {/* Section Composition */}
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">
-            📋 Composition
-          </h2>
-          <p className="text-gray-700">{product.composition}</p>
-        </div>
+        {/* Section Composition */}
+        {product.composition && (
+          <div className="mt-8">
+            <h2 className="text-2xl font-bold text-gray-900 mb-6">
+              📋 Composition
+            </h2>
+            <p className="text-gray-700">{product.composition}</p>
+          </div>
+        )}
 
         {/* Section produits favoris / récemment vus / même catégorie */}
         <div className="mt-16">
@@ -200,3 +249,24 @@ export default function ProductPage({
     </div>
   );
 }
+
+const ClassicDisplay = (product: Product) => {
+  return (
+    <div className="flex items-center mt-4 mb-6 space-x-4">
+      <span className="text-2xl font-bold text-gray-900">
+        €{product.price.toFixed(2)}
+      </span>
+      {product.originalPrice !== undefined &&
+        product.originalPrice > product.price && (
+          <span className="text-sm text-gray-500 line-through">
+            €{product.originalPrice.toFixed(2)}
+          </span>
+        )}
+      {product.poids && (
+        <span className="text-2xl font-bold text-gray-900 m-auto">
+          {product.poids}
+        </span>
+      )}
+    </div>
+  );
+};

@@ -5,12 +5,14 @@ export const products: Product[] = [
   {
     id: 1,
     name: "Croquettes - Dog&Dog Wild Regional Farm",
-    price: 70.0,
-    poids: "12 Kg",
     image: "/DD_wregionalfarm_B.jpg",
     category: "Nutrition Chien",
     isNew: true,
     href: "chiens",
+    formats: [
+      { poids: "12 Kg", price: 70.0 },
+      { poids: "3 Kg", price: 22.0 },
+    ],
     description:
       "Croquettes riches en protéines animales pour Chiens adultes de toutes tailles, préférant les viandes blanches d’élevage libre. Aussi adapté pour les chiennes allaitantes ou gestantes. Préparé avec une grande variété de viandes provenant des fermes européennes, telles que le canard, poulet et lapin, complétés par des œufs, des légumes, des fruits et fleurs.",
     analyse: [
@@ -18,6 +20,7 @@ export const products: Product[] = [
       { key: "Matières grasses brutes", value: "19,50%" },
       { key: "Fibres brutes", value: "2,00%" },
       { key: "Cendres brutes", value: "7,00°%" },
+      { key: "Humidité", value: "11,00°%" },
     ],
     composition:
       "Poulet séché fraîchement préparé (25%), Pois, Cerdo ibérique désossé séché, Graisse animale, Châtaignes cassées, Canard cuit séché (6%), Protéines de poulet hydrolysées, Lapin désossé séché (4%), Oeufs, Fleurs d’hibiscus (0,192%), Fleurs de Rosa canina L. et Rosa pendulina L. 0,024%, Framboises (0,008%), Mûres (0,008%), Fraises (0,008%)",

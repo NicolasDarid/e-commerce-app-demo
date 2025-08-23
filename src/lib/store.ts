@@ -1,11 +1,9 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-export interface Product {
+export interface BaseProduct {
   id: number;
   name: string;
-  price: number;
-  originalPrice?: number;
   rating?: number;
   reviews?: number;
   image: string;
@@ -14,12 +12,33 @@ export interface Product {
   description?: string;
   analyse?: { key: string; value: string }[];
   composition?: string;
-  poids?: string;
   isNew?: boolean;
 }
 
+// Produit simple
+export interface SingleFormatProduct extends BaseProduct {
+  price: number;
+  originalPrice?: number;
+  poids?: string;
+}
+
+// Produit multi-format
+export interface MultiFormatProduct extends BaseProduct {
+  formats: {
+    poids: string;
+    price: number;
+    originalPrice?: number;
+  }[];
+}
+
+// Union
+export type Product = SingleFormatProduct | MultiFormatProduct;
+
+// Item du panier
 interface CartItem extends Product {
   quantity: number;
+  selectedFormat?: { poids: string; price: number }; // optionnel
+  cartKey: string; // id unique pour le panier = id + format
 }
 
 interface ProductStore {
@@ -36,9 +55,12 @@ interface ProductStore {
 
   // Panier
   cart: CartItem[];
-  addToCart: (product: Product) => void;
-  removeFromCart: (productId: number) => void;
-  updateQuantity: (productId: number, quantity: number) => void;
+  addToCart: (
+    product: Product,
+    format?: { poids: string; price: number; originalPrice?: number }
+  ) => void;
+  removeFromCart: (cartKey: string) => void;
+  updateQuantity: (cartKey: string, quantity: number) => void;
   clearCart: () => void;
   getCartTotal: () => number;
   getCartItemCount: () => number;
@@ -82,44 +104,70 @@ export const useProductStore = create<ProductStore>()(
 
       // Panier
       cart: [],
-      addToCart: (product) =>
+      addToCart: (
+        product: Product,
+        format?: { poids: string; price: number }
+      ) =>
         set((state) => {
+          const actualFormat = format ?? {
+            poids: product.poids ?? "",
+            price: product.price,
+          };
+          const cartKey = `${product.id}-${actualFormat.poids}`;
+
           const existingItem = state.cart.find(
-            (item) => item.id === product.id
+            (item) => item.cartKey === cartKey
           );
+
           if (existingItem) {
             return {
               cart: state.cart.map((item) =>
-                item.id === product.id
+                item.cartKey === cartKey
                   ? { ...item, quantity: item.quantity + 1 }
                   : item
               ),
             };
           }
+
           return {
-            cart: [...state.cart, { ...product, quantity: 1 }],
+            cart: [
+              ...state.cart,
+              {
+                ...product,
+                quantity: 1,
+                selectedFormat: actualFormat,
+                cartKey,
+              },
+            ],
           };
         }),
-      removeFromCart: (productId) =>
+
+      removeFromCart: (cartKey: string) =>
         set((state) => ({
-          cart: state.cart.filter((item) => item.id !== productId),
+          cart: state.cart.filter((item) => item.cartKey !== cartKey),
         })),
-      updateQuantity: (productId, quantity) =>
+
+      updateQuantity: (cartKey: string, quantity: number) =>
         set((state) => ({
           cart: state.cart.map((item) =>
-            item.id === productId
+            item.cartKey === cartKey
               ? { ...item, quantity: Math.max(0, quantity) }
               : item
           ),
         })),
+
       clearCart: () => set({ cart: [] }),
+
       getCartTotal: () => {
         const { cart } = get();
-        return cart.reduce(
-          (total, item) => total + item.price * item.quantity,
-          0
-        );
+        return cart.reduce((total, item) => {
+          const price = item.selectedFormat
+            ? item.selectedFormat.price
+            : (item as SingleFormatProduct).price;
+          return total + price * item.quantity;
+        }, 0);
       },
+
       getCartItemCount: () => {
         const { cart } = get();
         return cart.reduce((count, item) => count + item.quantity, 0);

@@ -29,7 +29,11 @@ export default function ProductCard({
       toast.error("Produit introuvable");
       return;
     }
-    addToCart(product);
+    if (product.formats) {
+      addToCart(product, product.formats[0]);
+    } else {
+      addToCart(product);
+    }
     addToRecentlyViewed(product.id);
     toast.success("Produit ajouté au panier");
   };
@@ -153,15 +157,40 @@ export default function ProductCard({
 
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
-            <span className="text-lg font-bold text-gray-900">
-              €{product.price.toFixed(2)}
-            </span>
-            {product.originalPrice !== undefined &&
-              product.originalPrice > product.price && (
-                <span className="text-sm text-gray-500 line-through">
-                  €{product.originalPrice.toFixed(2)}
+            {product.formats && product.formats.length > 0 ? (
+              <>
+                <span className="text-lg font-bold text-gray-900">
+                  €{product.formats[0].price.toFixed(2)}
                 </span>
-              )}
+                {product.formats[0].originalPrice !== undefined &&
+                  product.formats[0].originalPrice >
+                    product.formats[0].price && (
+                    <span className="text-sm text-gray-500 line-through">
+                      €{product.formats[0].originalPrice.toFixed(2)}
+                    </span>
+                  )}
+                <span className="text-sm text-gray-600">
+                  ({product.formats[0].poids})
+                </span>
+              </>
+            ) : (
+              <>
+                <span className="text-lg font-bold text-gray-900">
+                  €{product.price.toFixed(2)}
+                </span>
+                {product.originalPrice !== undefined &&
+                  product.originalPrice > product.price && (
+                    <span className="text-sm text-gray-500 line-through">
+                      €{product.originalPrice.toFixed(2)}
+                    </span>
+                  )}
+                {product.poids && (
+                  <span className="text-sm text-gray-600">
+                    ({product.poids})
+                  </span>
+                )}
+              </>
+            )}
           </div>
 
           {showAddToCart && (
