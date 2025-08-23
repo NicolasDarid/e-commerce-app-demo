@@ -1,7 +1,7 @@
 "use client";
 
 import { products } from "@/lib/data";
-import { Product, useProductStore } from "@/lib/store";
+import { Product, SingleFormatProduct, useProductStore } from "@/lib/store";
 import { Heart, ShoppingCart } from "lucide-react";
 import Image from "next/image";
 import { use, useEffect, useState } from "react";
