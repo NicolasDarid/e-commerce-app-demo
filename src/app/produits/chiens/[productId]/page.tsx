@@ -26,6 +26,8 @@ export default function ProductPage({
   const resolvedParams = use(params); // Résout la promesse
   const { productId } = resolvedParams;
 
+  if (!product) notFound();
+
   const product = products.find((p) => p.id === Number(productId));
   const { isFavorite, toggleFavorite, addToCart, addToRecentlyViewed } =
     useProductStore();
@@ -63,10 +65,6 @@ export default function ProductPage({
   useEffect(() => {
     if (product) addToRecentlyViewed(product.id);
   }, [addToRecentlyViewed, product, product?.id]);
-
-  if (!product) {
-    notFound();
-  }
 
   return (
     <div className="min-h-screen bg-gray-50 py-10">
