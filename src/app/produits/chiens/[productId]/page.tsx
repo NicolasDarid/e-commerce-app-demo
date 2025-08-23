@@ -283,11 +283,7 @@ function getDefaultPoids(product: Product): string {
     return product.formats[0].poids;
   }
   const single = product as SingleFormatProduct;
-  if ("poids" in single) {
-    return single.poids;
-  } else {
-    return "";
-  }
+  return single.poids ?? ""; // <-- fallback vide si undefined
 }
 
 function getDefaultOriginalPrice(product: Product): number {
