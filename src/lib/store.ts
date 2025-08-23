@@ -35,7 +35,7 @@ export interface MultiFormatProduct extends BaseProduct {
 export type Product = SingleFormatProduct | MultiFormatProduct;
 
 // Item du panier
-interface CartItem extends Product {
+interface CartItem {
   id: number;
   name: string;
   image: string;
