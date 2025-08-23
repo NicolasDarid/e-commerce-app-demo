@@ -16,7 +16,7 @@ export default function ProduitsPromos() {
             🎉🎊 Nos produits en promotions 🎉🎊
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Nos meilleurs produits, à un prix aventageux pour uen durée limitée
+            Nos meilleurs produits, à un prix avantageux pour une durée limitée
             !
           </p>
         </div>

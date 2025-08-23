@@ -39,8 +39,9 @@ export default function Cart() {
 
       <div className="space-y-4">
         {cart.map((item) => {
-          const price = item.selectedFormat?.price ?? item.price;
-          const poids = item.selectedFormat?.poids ?? item.poids;
+          const price = item.selectedFormat?.price ?? item.price ?? 0; // fallback pour éviter undefined
+
+          const poids = item.selectedFormat?.poids ?? item.poids ?? "";
 
           return (
             <div
