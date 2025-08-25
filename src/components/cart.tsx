@@ -3,6 +3,8 @@
 import { useProductStore } from "@/lib/store";
 import { Minus, Plus, Trash2 } from "lucide-react";
 import Image from "next/image";
+import { Button } from "./ui/button";
+import Link from "next/link";
 
 export default function Cart() {
   const { cart, removeFromCart, updateQuantity, getCartTotal, clearCart } =
@@ -116,6 +118,12 @@ export default function Cart() {
           </span>
         </div>
       </div>
+
+      <Link href="/client-contact">
+        <Button className="w-full h-12 text-lg bg-blue-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-blue-700 transition-colors">
+          Prendre contact
+        </Button>
+      </Link>
     </div>
   );
 }
