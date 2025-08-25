@@ -7,6 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { Minus, Plus, Trash2, Send } from "lucide-react";
 import { toast } from "sonner";
 import { useForm } from "react-hook-form";
@@ -51,6 +52,7 @@ export default function ClientContactPage() {
     useProductStore();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
+  const router = useRouter();
 
   // Rate limiting: 3 tentatives max par 15 minutes, 5 minutes de cooldown
   const rateLimit = useRateLimit({
@@ -63,6 +65,7 @@ export default function ClientContactPage() {
     register,
     handleSubmit,
     formState: { errors },
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     reset,
     setValue,
   } = useForm<ContactFormData>({
@@ -135,11 +138,9 @@ export default function ClientContactPage() {
         throw new Error(result.error || "Erreur lors de l'envoi");
       }
 
-      toast.success("Votre demande a été envoyée avec succès !");
-      reset(); // Réinitialise le formulaire
-      setRecaptchaToken(null); // Réinitialise le reCAPTCHA
-      rateLimit.reset(); // Réinitialise le rate limiter après succès
-      clearCart(); // Vider le panier après succès
+      // Rediriger vers la page de succès
+      clearCart();
+      router.push("/client-contact/success");
     } catch (error) {
       console.error("Erreur lors de l'envoi:", error);
       toast.error(
