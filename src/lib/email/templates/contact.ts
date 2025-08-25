@@ -14,9 +14,6 @@ export class ContactEmailTemplate implements EmailTemplate {
         <tr>
           <td style="padding: 12px; border-bottom: 1px solid #e5e7eb;">
             <div style="display: flex; align-items: center; gap: 12px;">
-              <img src="${item.image}" alt="${
-          item.name
-        }" style="width: 50px; height: 50px; object-fit: cover; border-radius: 8px;">
               <div>
                 <div style="font-weight: 600; color: #1f2937;">${
                   item.name
