@@ -5,6 +5,7 @@ import { products } from "@/lib/data";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
 import { useState } from "react";
+import { Product } from "@/lib/store";
 
 export default function ProduitsChats() {
   const [activeFilter, setActiveFilter] = useState("tous");
