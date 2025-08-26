@@ -69,13 +69,19 @@ export default function ProduitsChats() {
                 🛍️ Filtrer par catégorie
               </h2>
               <TabsList className="grid w-full max-w-md grid-cols-3">
-                <TabsTrigger value="tous" className="flex items-center gap-2">
+                <TabsTrigger
+                  value="tous"
+                  className="flex items-center gap-2 cursor-pointer"
+                >
                   <span>Tous</span>
                   <Badge variant="secondary" className="text-xs">
                     {getFilteredProducts("tous").length}
                   </Badge>
                 </TabsTrigger>
-                <TabsTrigger value="chats" className="flex items-center gap-2">
+                <TabsTrigger
+                  value="chats"
+                  className="flex items-center gap-2 cursor-pointer"
+                >
                   <span>Chats adultes</span>
                   <Badge variant="secondary" className="text-xs">
                     {getFilteredProducts("chats").length}
@@ -83,7 +89,7 @@ export default function ProduitsChats() {
                 </TabsTrigger>
                 <TabsTrigger
                   value="chatons"
-                  className="flex items-center gap-2"
+                  className="flex items-center gap-2 cursor-pointer"
                 >
                   <span>Chatons</span>
                   <Badge variant="secondary" className="text-xs">

@@ -70,19 +70,28 @@ export default function ProduitsChiens() {
                 🛍️ Filtrer par catégorie
               </h2>
               <TabsList className="grid w-full max-w-md grid-cols-3">
-                <TabsTrigger value="tous" className="flex items-center gap-2">
+                <TabsTrigger
+                  value="tous"
+                  className="flex items-center gap-2 cursor-pointer"
+                >
                   <span>Tous</span>
                   <Badge variant="secondary" className="text-xs">
                     {getFilteredProducts("tous").length}
                   </Badge>
                 </TabsTrigger>
-                <TabsTrigger value="chiens" className="flex items-center gap-2">
+                <TabsTrigger
+                  value="chiens"
+                  className="flex items-center gap-2 cursor-pointer"
+                >
                   <span>Chiens adultes</span>
                   <Badge variant="secondary" className="text-xs">
                     {getFilteredProducts("chiens").length}
                   </Badge>
                 </TabsTrigger>
-                <TabsTrigger value="chiots" className="flex items-center gap-2">
+                <TabsTrigger
+                  value="chiots"
+                  className="flex items-center gap-2 cursor-pointer"
+                >
                   <span>Chiots</span>
                   <Badge variant="secondary" className="text-xs">
                     {getFilteredProducts("chiots").length}
