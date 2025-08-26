@@ -1,6 +1,6 @@
 import ProductCard from "@/components/productCard";
 import { products } from "@/lib/data";
-import { Product, SingleFormatProduct } from "@/lib/store";
+import { getDefaultOriginalPrice } from "@/lib/getValue";
 
 export default function ProduitsPromos() {
   const filteredProducts = products.filter((produit) =>
@@ -36,12 +36,4 @@ export default function ProduitsPromos() {
       </div>
     </div>
   );
-}
-
-function getDefaultOriginalPrice(product: Product): number {
-  if ("formats" in product && product.formats.length > 0) {
-    return product.formats[0].originalPrice ?? 0;
-  }
-  const single = product as SingleFormatProduct;
-  return single.originalPrice ?? 0; // <-- fallback vide si undefined
 }

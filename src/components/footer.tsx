@@ -79,7 +79,7 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <Link
-                  href="#"
+                  href="/faq"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
                   ❓ FAQ
@@ -87,7 +87,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#"
+                  href="/faq"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
                   📦 Livraison
@@ -95,7 +95,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#"
+                  href="/faq"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
                   🔄 Retours
@@ -103,7 +103,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#"
+                  href="/faq"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
                   🛡️ Garantie
@@ -111,7 +111,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#"
+                  href="/conditions-generales-vente"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
                   📋 CGV

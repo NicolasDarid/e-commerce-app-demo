@@ -165,7 +165,7 @@ export default function ProductCard({
             {"formats" in product && product.formats.length > 0 ? (
               <>
                 <span className="text-lg font-bold text-gray-900">
-                  €{product.formats[0].price.toFixed(2)}
+                  {product.formats[0].price.toFixed(2)} €
                 </span>
                 {product.formats[0].originalPrice !== undefined &&
                   product.formats[0].originalPrice >

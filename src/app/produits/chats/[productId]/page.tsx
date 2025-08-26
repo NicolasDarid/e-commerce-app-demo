@@ -83,6 +83,7 @@ export default function ProductPage({
               width={500}
               height={500}
               className="w-full h-full object-contain rounded-xl shadow-md"
+              priority
             />
             {product.isNew && (
               <span className="absolute top-3 left-3 bg-blue-500 text-white text-xs px-2 py-1 rounded-full">
@@ -146,7 +147,7 @@ export default function ProductPage({
                               value={f.poids}
                               className="hover:bg-blue-50 data-[highlighted]:bg-blue-100 rounded-md px-2 py-1 text-gray-900 text-md"
                             >
-                              {f.poids} - €{f.price.toFixed(2)}
+                              {f.poids} - {f.price.toFixed(2)} €
                             </SelectItem>
                           ))}
                         </SelectContent>
@@ -154,8 +155,8 @@ export default function ProductPage({
                     </>
                   ) : (
                     <div className="text-lg font-bold text-gray-900">
-                      {product.formats[0].poids} - €
-                      {product.formats[0].price.toFixed(2)}
+                      {product.formats[0].poids} -
+                      {product.formats[0].price.toFixed(2)} €
                     </div>
                   )}
                 </div>
@@ -198,17 +199,6 @@ export default function ProductPage({
                 </motion.span>
               </button>
             </div>
-
-            {/* Description */}
-            {product.description ? (
-              <div className="mb-6">
-                <h2 className="text-xl font-semibold text-gray-900 mb-2">
-                  Description
-                </h2>
-                <p className="text-gray-700">{product.description}</p>
-              </div>
-            ) : null}
-
             {/* Analyse du produit */}
             {product.analyse && product.analyse.length > 0 && (
               <div>
@@ -236,6 +226,16 @@ export default function ProductPage({
           </div>
         </div>
 
+        {/* Description */}
+        {product.description ? (
+          <div className="mt-8">
+            <h2 className="text-xl font-semibold text-gray-900 mb-2">
+              Description
+            </h2>
+            <p className="text-gray-700">{product.description}</p>
+          </div>
+        ) : null}
+
         {/* Section Composition */}
         {product.composition && (
           <div className="mt-8">
@@ -259,17 +259,17 @@ const ClassicDisplay = (product: Product) => {
   return (
     <div className="flex items-center mt-4 mb-6 space-x-4">
       <span className="text-2xl font-bold text-gray-900">
-        €{getDefaultPrice(product).toFixed(2)}
+        {getDefaultPrice(product).toFixed(2)} €
       </span>
       {getDefaultOriginalPrice(product) !== undefined &&
         getDefaultOriginalPrice(product) > getDefaultPrice(product) && (
           <span className="text-sm text-gray-500 line-through">
-            €{getDefaultOriginalPrice(product).toFixed(2)}
+            {getDefaultOriginalPrice(product).toFixed(2)} €
           </span>
         )}
       {getDefaultPoids(product) && (
-        <span className="text-2xl font-bold text-gray-900 m-auto">
-          {getDefaultPoids(product)}
+        <span className="text-2xl font-bold text-gray-900">
+          - {getDefaultPoids(product)}
         </span>
       )}
     </div>
