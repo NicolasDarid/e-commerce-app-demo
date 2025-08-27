@@ -22,20 +22,16 @@ export default function MentionsLegales() {
           </h2>
           <p className="text-gray-700 leading-relaxed">
             Ce site est édité par <strong>DARID Nicolas</strong>
-            {/*, dont
-            le siège social est situé à [Adresse complète].
             <br />
-            SIRET : [Numéro SIRET]
-            <br />
-            Responsable de la publication : [Ton nom / fonction]
+            Responsable de la publication : DARID Nicolas / Web Developer
             <br />
             Contact :{" "}
             <Link
-              href="mailto:contact@monsite.com"
+              href="mailto:nicolasdarid@gmail.com"
               className="text-blue-600 hover:underline"
             >
-              contact@monsite.com
-            </Link>*/}
+              nicolasdarid@gmail.com
+            </Link>
           </p>
         </section>
 
@@ -58,16 +54,6 @@ export default function MentionsLegales() {
             Toute reproduction, même partielle, est interdite sans autorisation
             préalable.
           </p>
-          <p className="text-gray-700 leading-relaxed">
-            Les logos et visuels des marques{" "}
-            <strong>
-              Gheda Petfood, Alpha Spirit Petfood, Vincent Petfood et Lobo Azul
-            </strong>{" "}
-            sont utilisés avec leur autorisation. Ces éléments restent la
-            propriété exclusive de leurs détenteurs respectifs. Toute
-            utilisation, reproduction ou modification de ces éléments est
-            strictement interdite sans accord préalable des ayants droit.
-          </p>
         </section>
 
         <section className="mb-12">
@@ -75,9 +61,9 @@ export default function MentionsLegales() {
             🔒 4. Données personnelles
           </h2>
           <p className="text-gray-700 leading-relaxed">
-            Aucune donnée personnelle n’est collectée sans votre consentement.
-            Pour plus de détails concernant la gestion de vos données, veuillez
-            consulter notre{" "}
+            Aucune donnée personnelle n&apos;est collectée sans votre
+            consentement. Pour plus de détails concernant la gestion de vos
+            données, veuillez consulter notre{" "}
             <Link
               href="/politique-confidentialite"
               className="text-blue-600 hover:underline"

@@ -1,4 +1,4 @@
-# Configuration du système d'email - RunKroket
+# Configuration du système d'email - PetStore Demo
 
 ## 🚀 Configuration rapide
 

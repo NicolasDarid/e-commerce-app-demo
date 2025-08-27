@@ -15,8 +15,8 @@ export class EmailServiceManager {
   private getConfigInternal(): EmailConfig {
     if (!this.config) {
       this.config = {
-        fromEmail: process.env.FROM_EMAIL || "noreply@runkroket.fr",
-        toEmail: process.env.CONTACT_EMAIL || "contact@runkroket.fr",
+        fromEmail: process.env.FROM_EMAIL || "noreply@petstore-demo.com",
+        toEmail: process.env.CONTACT_EMAIL || "contact@petstore-demo.com",
         service: "resend",
         apiKey: process.env.RESEND_API_KEY || "",
       };

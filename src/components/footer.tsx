@@ -11,7 +11,7 @@ export default function Footer() {
             <div className="flex items-center space-x-3 mb-4">
               <PawPrint className="h-8 w-8 text-blue-400" />
               <div>
-                <h3 className="text-2xl font-bold">Run Kroket</h3>
+                <h3 className="text-2xl font-bold">PetStore Demo</h3>
                 <p className="text-gray-400">Boutique en ligne</p>
               </div>
             </div>
@@ -21,8 +21,10 @@ export default function Footer() {
               depuis 2014.
             </p>
             <div className="flex space-x-4">
-              <span className="text-gray-400">📧 runkroket@runkroket.re</span>
-              <span className="text-gray-400">📞 06 92 33 42 43</span>
+              <span className="text-gray-400">
+                📧 contact@petstore-demo.com
+              </span>
+              <span className="text-gray-400">📞 +33 6 12 34 56 78</span>
             </div>
           </div>
 
@@ -125,7 +127,7 @@ export default function Footer() {
         <div className="border-t border-gray-800 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm">
-              © 2025 RunKroket. Tous droits réservés.
+              © 2025 PetStore Demo. Tous droits réservés.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <Link

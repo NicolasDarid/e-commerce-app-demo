@@ -56,7 +56,7 @@ export default function SuccessPage() {
             </Button>
 
             <p className="text-gray-500 text-sm">
-              Merci de votre confiance en Runkroket ! 🚀
+              Merci de votre confiance en PetStore Demo ! 🚀
             </p>
           </div>
         </div>

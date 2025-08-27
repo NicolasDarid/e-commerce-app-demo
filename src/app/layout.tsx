@@ -11,7 +11,7 @@ import StorageNotice from "@/components/infoBanner";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "RunKroket - Boutique en ligne pour chiens et chats",
+  title: "PetStore Demo - Boutique en ligne pour chiens et chats",
   description:
     "Tout pour le bonheur et le bien-être de vos compagnons à 4 pattes.",
 };

@@ -71,10 +71,10 @@ export default function PolitiqueConfidentialite() {
             Pour toute question concernant cette politique de confidentialité ou
             la gestion de vos données, vous pouvez nous contacter à l’adresse :{" "}
             <a
-              href="mailto:contactsupport@runkroket.re"
+              href="mailto:contact@petstore-demo.com"
               className="text-blue-600 hover:underline"
             >
-              contactsupport@runkroket.re
+              contact@petstore-demo.com
             </a>
           </p>
         </section>

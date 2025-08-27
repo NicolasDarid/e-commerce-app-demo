@@ -55,7 +55,7 @@ export default function FAQPage() {
               {
                 question: "Vos produits sont-ils de qualité premium ?",
                 answer:
-                  "Oui, nous avons des produits de qualité premium pour vos compagnons mais nous avons également des produits de qualité super-premium. Nos marques partenaires comme Alpha Spirit et Dog&Dog Wild sont reconnues pour leur excellence.",
+                  "Oui, nous avons des produits de qualité premium pour vos compagnons reconnus pour leur excellence.",
               },
               {
                 question:
@@ -66,7 +66,7 @@ export default function FAQPage() {
               {
                 question: "Proposez-vous des produits sans céréales ?",
                 answer:
-                  "Oui, nous proposons une large gamme de produits sans céréales, notamment les croquettes Alpha Spirit et Dog&Dog Wild qui sont fabriquées sans céréales et avec des ingrédients frais.",
+                  "Oui, nous proposons une large gamme de produits sans céréales et avec des ingrédients frais.",
               },
               {
                 question:
@@ -85,7 +85,7 @@ export default function FAQPage() {
               {
                 question: "Quels moyens de paiement acceptez-vous ?",
                 answer:
-                  "Nous acceptons les cartes bancaires (Visa, Mastercard) et paiement par cash lors de la livraison ou les virements bancaires si vous voulez payer en avance.",
+                  "Nous accepterons bientôt les cartes bancaires (Visa, Mastercard).",
               },
               {
                 question: "Proposez-vous le paiement en plusieurs fois ?",
@@ -107,7 +107,7 @@ export default function FAQPage() {
               {
                 question: "Comment vous contacter ?",
                 answer:
-                  "Vous pouvez nous contacter par téléphone au +262 6 92 33 42 43, par email à runkroket@runkroket.re, ou via notre page Facebook.",
+                  "Vous pouvez nous contacter par téléphone au +33 6 12 34 56 78, par email à nicolasdarid@gmail.com, ou via notre page GitHub.",
               },
               {
                 question: "Quels sont vos horaires d'ouverture ?",
@@ -158,7 +158,7 @@ export default function FAQPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="tel:+262692334243"
+                href="tel:+33612345678"
                 className="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
               >
                 📞 Nous appeler

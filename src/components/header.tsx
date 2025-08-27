@@ -23,7 +23,7 @@ export default function Header() {
           {/* Logo */}
           <div className="flex items-center space-x-2">
             <PawPrint className="h-8 w-8 text-blue-600" />
-            <h1 className="text-xl font-bold text-gray-900">RunKroket</h1>
+            <h1 className="text-xl font-bold text-gray-900">PetStore Demo</h1>
           </div>
 
           {/* Navigation Desktop */}

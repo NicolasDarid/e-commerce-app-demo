@@ -11,11 +11,11 @@ export default function Home() {
         {/* Hero Section */}
         <div className="mb-10 text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            🐈🐱 Bienvenue chez RunKroket 🐶🐕
+            🐈🐱 Bienvenue chez PetStore Demo 🐶🐕
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Tout pour le bonheur de vos compagnons à 4 pattes. Run Kroket est à
-            vos côtés depuis 2014.
+            Tout pour le bonheur de vos compagnons à 4 pattes. PetStore Demo est
+            là pour vous depuis 2025.
           </p>
         </div>
 

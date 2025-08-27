@@ -25,19 +25,19 @@ export default function CGVPage() {
               <p className="text-gray-600 leading-relaxed mb-4">
                 Les présentes Conditions Générales de Vente (CGV)
                 s&apos;appliquent à toutes les prestations de vente conclues par
-                RunKroket auprès de ses clients professionnels et particuliers,
-                quelles que soient les clauses pouvant figurer sur les documents
-                du client.
+                PetStore Demo auprès de ses clients professionnels et
+                particuliers, quelles que soient les clauses pouvant figurer sur
+                les documents du client.
               </p>
               <p className="text-gray-600 leading-relaxed">
-                <strong>Éditeur :</strong> RunKroket
+                <strong>Éditeur :</strong> PetStore Demo
                 <br />
                 <strong>Adresse :</strong> 18bis chemin Neuf, 97421 Saint-Louis,
                 Réunion
                 <br />
                 <strong>Téléphone :</strong> +262 6 92 33 42 43
                 <br />
-                <strong>Email :</strong> runkroket@runkroket.re
+                <strong>Email :</strong> contact@petstore-demo.com
               </p>
             </section>
 
@@ -47,8 +47,8 @@ export default function CGVPage() {
                 2. Produits et Services
               </h2>
               <p className="text-gray-600 leading-relaxed mb-4">
-                RunKroket commercialise des produits pour animaux de compagnie,
-                notamment :
+                PetStore Demo commercialise des produits pour animaux de
+                compagnie, notamment :
               </p>
               <ul className="list-disc list-inside text-gray-600 leading-relaxed space-y-2 ml-4">
                 <li>
@@ -294,11 +294,11 @@ export default function CGVPage() {
               </p>
               <div className="bg-gray-50 rounded-lg p-4">
                 <p className="text-gray-700">
-                  <strong>RunKroket</strong>
+                  <strong>PetStore Demo</strong>
                   <br />
                   📞 +262 6 92 33 42 43
                   <br />
-                  📧 runkroket@runkroket.re
+                  📧 contact@petstore-demo.com
                   <br />
                   🕒 Lundi - Vendredi : 9h - 18h
                 </p>

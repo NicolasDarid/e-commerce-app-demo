@@ -49,13 +49,13 @@ export class ContactEmailTemplate implements EmailTemplate {
       <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Nouvelle demande de commande - RunKroket</title>
+        <title>Nouvelle demande de commande - PetStore Demo</title>
       </head>
       <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
         
         <!-- En-tête -->
         <div style="text-align: center; margin-bottom: 30px; padding: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 10px;">
-          <h1 style="color: white; margin: 0; font-size: 28px;">🐕 RunKroket</h1>
+          <h1 style="color: white; margin: 0; font-size: 28px;">🐕 PetStore Demo</h1>
           <p style="color: white; margin: 10px 0 0 0; font-size: 16px;">Nouvelle demande de commande</p>
         </div>
 
@@ -133,7 +133,7 @@ export class ContactEmailTemplate implements EmailTemplate {
 
         <!-- Pied de page -->
         <div style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #e5e7eb; color: #6b7280; font-size: 14px;">
-          <p>Cet email a été envoyé automatiquement depuis le site RunKroket</p>
+          <p>Cet email a été envoyé automatiquement depuis le site PetStore Demo</p>
           <p>Date : ${new Date().toLocaleString("fr-FR")}</p>
         </div>
 
@@ -142,7 +142,7 @@ export class ContactEmailTemplate implements EmailTemplate {
     `;
 
     const text = `
-Nouvelle demande de commande - RunKroket
+Nouvelle demande de commande - PetStore Demo
 
 INFORMATIONS CLIENT :
 Nom : ${formData.nom} ${formData.prenom}
@@ -173,7 +173,7 @@ Date : ${new Date().toLocaleString("fr-FR")}
     `;
 
     return {
-      to: process.env.CONTACT_EMAIL || "contact@runkroket.fr",
+      to: process.env.CONTACT_EMAIL || "contact@petstore-demo.com",
       subject: `🛒 Nouvelle commande - ${formData.nom} ${
         formData.prenom
       } (€${total.toFixed(2)})`,
@@ -184,8 +184,8 @@ Date : ${new Date().toLocaleString("fr-FR")}
 
   generateTestEmail(): EmailData {
     return {
-      to: process.env.CONTACT_EMAIL || "contact@runkroket.fr",
-      subject: "🧪 Test email - RunKroket",
+      to: process.env.CONTACT_EMAIL || "contact@petstore-demo.com",
+      subject: "🧪 Test email - PetStore Demo",
       html: `
         <div style="font-family: Arial, sans-serif; padding: 20px;">
           <h1>Test de configuration email</h1>
