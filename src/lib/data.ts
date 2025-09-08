@@ -6,7 +6,7 @@ export const products: Product[] = [
   {
     id: 1,
     name: "Croquettes Premium - Poulet & Riz Complet",
-    image: "/product-dog-1.svg",
+    image: "/product-dog-1.jpg",
     category: "Nutrition Chien",
     isNew: true,
     href: "chiens",
@@ -29,7 +29,7 @@ export const products: Product[] = [
   {
     id: 2,
     name: "Croquettes Sport - Agneau & Patate Douce",
-    image: "/product-dog-2.svg",
+    image: "/product-dog-2.jpg",
     category: "Nutrition Chien",
     isNew: true,
     href: "chiens",
@@ -52,7 +52,7 @@ export const products: Product[] = [
   {
     id: 3,
     name: "Croquettes Sensibles - Saumon & Quinoa",
-    image: "/product-dog-3.svg",
+    image: "/product-dog-3.jpg",
     category: "Nutrition Chien",
     isNew: true,
     href: "chiens",
@@ -75,7 +75,7 @@ export const products: Product[] = [
   {
     id: 4,
     name: "Croquettes Chiots - Dinde & Légumes",
-    image: "/product-dog-4.svg",
+    image: "/product-dog-4.jpg",
     category: "Nutrition Chiots",
     isNew: true,
     href: "chiens",
@@ -98,7 +98,7 @@ export const products: Product[] = [
   {
     id: 5,
     name: "Croquettes Senior - Canard & Riz Brun",
-    image: "/product-dog-5.svg",
+    image: "/product-dog-5.jpg",
     category: "Nutrition Chien",
     isNew: true,
     href: "chiens",
@@ -122,7 +122,7 @@ export const products: Product[] = [
   {
     id: 6,
     name: "Croquettes Chat - Thon & Riz",
-    image: "/product-cat-1.svg",
+    image: "/product-cat-1.jpg",
     category: "Nutrition Chat",
     isNew: true,
     href: "chats",
@@ -145,7 +145,7 @@ export const products: Product[] = [
   {
     id: 7,
     name: "Croquettes Chat Stérilisé - Poulet & Fibres",
-    image: "/product-cat-2.svg",
+    image: "/product-cat-2.jpg",
     category: "Nutrition Chat",
     isNew: true,
     href: "chats",
@@ -168,7 +168,7 @@ export const products: Product[] = [
   {
     id: 8,
     name: "Croquettes Chaton - Saumon & Légumes",
-    image: "/product-cat-3.svg",
+    image: "/product-cat-3.jpg",
     category: "Nutrition Chat",
     isNew: true,
     href: "chats",
@@ -192,7 +192,7 @@ export const products: Product[] = [
   {
     id: 9,
     name: "Shampoing Doux - Aloe Vera",
-    image: "/product-hygiene-1.svg",
+    image: "/product-dog-5.jpg",
     category: "Hygiène Chien",
     isNew: true,
     href: "chiens",
@@ -213,7 +213,7 @@ export const products: Product[] = [
   {
     id: 10,
     name: "Brosse de Toilettage - Poils Courts",
-    image: "/product-hygiene-2.svg",
+    image: "/product-dog-1.jpg",
     category: "Hygiène Chien",
     isNew: true,
     href: "chiens",
@@ -232,7 +232,7 @@ export const products: Product[] = [
   {
     id: 11,
     name: "Shampoing Sec - Fleurs de Lavande",
-    image: "/product-hygiene-3.svg",
+    image: "/product-dog-3.jpg",
     category: "Hygiène Chat",
     isNew: true,
     href: "chats",
@@ -253,7 +253,7 @@ export const products: Product[] = [
   {
     id: 12,
     name: "Brosse Anti-Boules - Poils Longs",
-    image: "/product-hygiene-4.svg",
+    image: "/product-dog-4.jpg",
     category: "Hygiène Chat",
     isNew: true,
     href: "chats",
@@ -272,7 +272,7 @@ export const products: Product[] = [
   {
     id: 13,
     name: "Complément Articulations - Glucosamine",
-    image: "/product-complement-1.svg",
+    image: "/product-complement-1.jpg",
     category: "Compléments",
     isNew: true,
     href: "chiens",
@@ -293,7 +293,7 @@ export const products: Product[] = [
   {
     id: 14,
     name: "Complément Pelage - Oméga 3 & 6",
-    image: "/product-complement-2.svg",
+    image: "/product-complement-2.jpg",
     category: "Compléments",
     isNew: true,
     href: "chiens",
@@ -313,7 +313,7 @@ export const products: Product[] = [
   {
     id: 15,
     name: "Complément Digestion - Probiotiques",
-    image: "/product-complement-3.svg",
+    image: "/product-complement-3.jpg",
     category: "Compléments",
     isNew: true,
     href: "chats",
@@ -335,7 +335,7 @@ export const products: Product[] = [
   {
     id: 16,
     name: "Jouet Interactif - Balle Puzzle",
-    image: "/product-jouet-1.svg",
+    image: "/product-jouet-1.jpg",
     category: "Jouets",
     isNew: true,
     href: "chiens",
@@ -352,7 +352,7 @@ export const products: Product[] = [
   {
     id: 17,
     name: "Jouet Chat - Souris Électronique",
-    image: "/product-jouet-2.svg",
+    image: "/product-jouet-2.jpg",
     category: "Jouets",
     isNew: true,
     href: "chats",
@@ -371,7 +371,7 @@ export const products: Product[] = [
   {
     id: 18,
     name: "Collier LED - Sécurité Nocturne",
-    image: "/product-accessoire-1.svg",
+    image: "/product-accessoire-1.jpg",
     category: "Accessoires",
     isNew: true,
     href: "chiens",
@@ -389,7 +389,7 @@ export const products: Product[] = [
   {
     id: 19,
     name: "Gamelle Anti-Glouton - Chien",
-    image: "/product-accessoire-2.svg",
+    image: "/product-accessoire-2.jpg",
     category: "Accessoires",
     isNew: true,
     href: "chiens",
@@ -407,7 +407,7 @@ export const products: Product[] = [
   {
     id: 20,
     name: "Arbre à Chat - 3 Niveaux",
-    image: "/product-accessoire-3.svg",
+    image: "/product-accessoire-3.jpg",
     category: "Accessoires",
     isNew: true,
     href: "chats",
